@@ -1,14 +1,10 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
-import AppNavigator from './src/navigation/AppNavigator';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
+import StatusBar from './src/components/StatusBar';
+import AppNavigator from './src/navigation/AppNavigator';
+import Color from './src/constants/Colors';
 
 export default class App extends React.Component {
   state = { isLoadingComplete: false };
@@ -50,9 +46,12 @@ export default class App extends React.Component {
       );
     }
     return (
-      <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <AppNavigator />
+      <View style={{ flex: 1, backgroundColor: Color.background }}>
+        <SafeAreaView />
+        <SafeAreaView style={{ flex: 1 }}>
+          <StatusBar />
+          <AppNavigator />
+        </SafeAreaView>
       </View>
     );
   }

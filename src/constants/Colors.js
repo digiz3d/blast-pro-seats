@@ -1,14 +1,10 @@
-const tintColor = '#2f95dc';
+const accentColor = '#EA9B41';
+const secondaryColor = '#B6307F';
 
 export default {
-  tintColor,
-  tabIconDefault: '#ccc',
-  tabIconSelected: tintColor,
-  tabBar: '#fefefe',
-  errorBackground: 'red',
-  errorText: '#fff',
-  warningBackground: '#EAEB5E',
-  warningText: '#666804',
-  noticeBackground: tintColor,
-  noticeText: '#fff',
+  accent: accentColor,
+  background: '#101A4C',
+  textColor: '#FFFFFF',
+  activeTabIcon: secondaryColor,
+  inactiveTabBarIcon: accentColor,
 };
