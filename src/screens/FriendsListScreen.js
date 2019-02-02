@@ -30,12 +30,20 @@ export default class AuthScreen extends React.Component {
             paddingHorizontal: 10,
           }}
         >
+          {/*
+          <Image
+            source={Avatar}
+            style={{ height: 60, width: 60, marginTop: 5 }}
+            resizeMode="contain"
+          />
+          */}
           <Icon.Ionicons
             name="md-search"
             size={40}
             color={Colors.textColor}
             style={{ textAlignVertical: 'center' }}
           />
+
           <Text
             style={{
               flexGrow: 1,
