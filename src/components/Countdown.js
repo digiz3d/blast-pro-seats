@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+
+import Text from './Text';
 import Colors from '../constants/Colors';
 
 const styles = StyleSheet.create({
@@ -7,7 +9,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.secondAccent,
   },
   text: {
-    color: Colors.textColor,
     textAlign: 'center',
     lineHeight: 40,
   },
