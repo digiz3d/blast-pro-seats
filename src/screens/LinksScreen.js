@@ -11,9 +11,7 @@ const styles = StyleSheet.create({
 });
 
 export default class LinksScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Links',
-  };
+  static navigationOptions = { title: 'Links' };
 
   render() {
     return (

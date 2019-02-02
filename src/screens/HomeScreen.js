@@ -24,9 +24,7 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     textAlign: 'center',
   },
-  contentContainer: {
-    paddingTop: 30,
-  },
+  contentContainer: { paddingTop: 30 },
   welcomeContainer: {
     alignItems: 'center',
     marginTop: 10,
@@ -43,12 +41,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 50,
   },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
+  homeScreenFilename: { marginVertical: 7 },
+  codeHighlightText: { color: 'rgba(96,100,109, 0.8)' },
   codeHighlightContainer: {
     backgroundColor: 'rgba(0,0,0,0.05)',
     borderRadius: 3,
@@ -72,9 +66,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.1,
         shadowRadius: 3,
       },
-      android: {
-        elevation: 20,
-      },
+      android: { elevation: 20 },
     }),
     alignItems: 'center',
     backgroundColor: '#fbfbfb',
@@ -85,16 +77,12 @@ const styles = StyleSheet.create({
     color: 'rgba(96,100,109, 1)',
     textAlign: 'center',
   },
-  navigationFilename: {
-    marginTop: 5,
-  },
+  navigationFilename: { marginTop: 5 },
   helpContainer: {
     marginTop: 15,
     alignItems: 'center',
   },
-  helpLink: {
-    paddingVertical: 15,
-  },
+  helpLink: { paddingVertical: 15 },
   helpLinkText: {
     fontSize: 14,
     color: '#2e78b7',
@@ -102,9 +90,7 @@ const styles = StyleSheet.create({
 });
 
 export default class HomeScreen extends React.Component {
-  static navigationOptions = {
-    header: null,
-  };
+  static navigationOptions = { header: null };
 
   _handleLearnMorePress = () => {
     WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
@@ -127,7 +113,7 @@ export default class HomeScreen extends React.Component {
       return (
         <Text style={styles.developmentModeText}>
           Development mode is enabled, your app will be slower but you can use useful development
-          tools.
+          hehe tools.
           {learnMoreButton}
         </Text>
       );
@@ -148,8 +134,8 @@ export default class HomeScreen extends React.Component {
             <Image
               source={
                 __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
+                  ? require('../../assets/images/robot-dev.png')
+                  : require('../../assets/images/robot-prod.png')
               }
               style={styles.welcomeImage}
             />
