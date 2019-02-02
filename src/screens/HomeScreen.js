@@ -1,16 +1,16 @@
 import React from 'react';
-import { Text } from 'react-native';
 
-import FullPageContainer from '../components/FullPageContainer';
+import FullPageBGContainer from '../components/FullPageBGContainer';
+import Countdown from '../components/Countdown';
+import WhatsLive from '../components/WhatsLive';
 
 export default class AuthScreen extends React.Component {
   render() {
     return (
-      <FullPageContainer>
-        <Text style={{ alignItems: 'center', justifyContent: 'center' }}>
-          test
-        </Text>
-      </FullPageContainer>
+      <FullPageBGContainer>
+        <Countdown />
+        <WhatsLive />
+      </FullPageBGContainer>
     );
   }
 }
