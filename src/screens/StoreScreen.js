@@ -125,10 +125,11 @@ class SeatClass extends React.Component {
   }
 }
 
-export default class AuthScreen extends React.Component {
+export default class StoreScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      total: 0,
       quantities: {
         bz1: 0,
         bz2: 0,
@@ -139,6 +140,15 @@ export default class AuthScreen extends React.Component {
     };
   }
 
+  amoutTotal() {
+    let total = 0;
+    const keys = Object.keys(this.state.quantities);
+    for (let i = 0; i < keys.length; i += 1) {
+      total += zones[keys[i]].price * this.state.quantities[keys[i]];
+    }
+    this.setState({ total });
+  }
+
   minus(id) {
     const oldValue = this.state.quantities[id];
     const newValue = oldValue > 0 ? oldValue - 1 : 0;
@@ -146,6 +156,10 @@ export default class AuthScreen extends React.Component {
       ...prevState,
       quantities: { ...prevState.quantities, [id]: newValue },
     }));
+    // that way, React doesnt wait for the total to update
+    setTimeout(() => {
+      this.amoutTotal();
+    }, 0);
   }
 
   plus(id) {
@@ -155,72 +169,104 @@ export default class AuthScreen extends React.Component {
       ...prevState,
       quantities: { ...prevState.quantities, [id]: newValue },
     }));
+    // that way, React doesnt wait for the total to update
+    setTimeout(() => {
+      this.amoutTotal();
+    }, 0);
   }
 
   render() {
     return (
       <FullPageBGContainer>
-        <View style={{ flex: 1 }}>
-          <View
+        <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: 50,
+          }}
+        >
+          <Text
             style={{
-              flex: 0.3,
-              justifyContent: 'center',
-              alignItems: 'center',
+              fontSize: 28,
+              fontWeight: '900',
+              color: '#C4C4C4',
             }}
           >
+            TICKETS
+          </Text>
+        </View>
+        <View
+          style={{
+            flex: 1,
+            // backgroundColor: 'green',
+          }}
+        >
+          <Image
+            source={BlastZone}
+            resizeMode="contain"
+            style={{
+              height: '100%',
+              width: '100%',
+            }}
+          />
+        </View>
+        <View
+          style={{
+            paddingHorizontal: 20,
+            paddingVertical: 5,
+            justifyContent: 'flex-end',
+            // backgroundColor: 'red',
+          }}
+        >
+          <SeatClass
+            id="bz1"
+            quantity={this.state.quantities.bz1}
+            onMinus={() => this.minus('bz1')}
+            onPlus={() => this.plus('bz1')}
+          />
+          <SeatClass
+            id="bz2"
+            quantity={this.state.quantities.bz2}
+            onMinus={() => this.minus('bz2')}
+            onPlus={() => this.plus('bz2')}
+          />
+          <SeatClass
+            id="catAp"
+            quantity={this.state.quantities.catAp}
+            onMinus={() => this.minus('catAp')}
+            onPlus={() => this.plus('catAp')}
+          />
+          <SeatClass
+            id="catA"
+            quantity={this.state.quantities.catA}
+            onMinus={() => this.minus('catA')}
+            onPlus={() => this.plus('catA')}
+          />
+          <SeatClass
+            id="catB"
+            quantity={this.state.quantities.catB}
+            onMinus={() => this.minus('catB')}
+            onPlus={() => this.plus('catB')}
+          />
+          <Text style={{ lineHeight: 24, fontSize: 18, alignSelf: 'flex-end' }}>
+            TOTAL : <Text style={{ fontSize: 24 }}>{this.state.total} €</Text>
+          </Text>
+          <TouchableOpacity style={{ alignSelf: 'flex-end' }}>
             <Text
               style={{
-                fontSize: 28,
-                fontWeight: '900',
-                color: '#C4C4C4',
+                fontSize: 18,
+                lineHeight: 18,
+                color: Colors.textLight,
+                backgroundColor: Colors.activeTabIcon,
+                paddingHorizontal: 30,
+                paddingVertical: 10,
+                borderRadius: 5,
+                marginTop: 5,
               }}
             >
-              TICKETS
+              BUY
             </Text>
-          </View>
-          <View style={{ flex: 1 }}>
-            <Image
-              source={BlastZone}
-              resizeMode="contain"
-              style={{
-                height: '100%',
-                width: '100%',
-                // backgroundColor: 'green',
-              }}
-            />
-          </View>
-          <View style={{ flex: 1, padding: 20 }}>
-            <SeatClass
-              id="bz1"
-              quantity={this.state.quantities.bz1}
-              onMinus={() => this.minus('bz1')}
-              onPlus={() => this.plus('bz1')}
-            />
-            <SeatClass
-              id="bz2"
-              quantity={this.state.quantities.bz2}
-              onMinus={() => this.minus('bz2')}
-              onPlus={() => this.plus('bz2')}
-            />
-            <SeatClass
-              id="catAp"
-              quantity={this.state.quantities.catAp}
-              onMinus={() => this.minus('catAp')}
-              onPlus={() => this.plus('catAp')}
-            />
-            <SeatClass
-              id="catA"
-              quantity={this.state.quantities.catA}
-              onMinus={() => this.minus('catA')}
-              onPlus={() => this.plus('catA')}
-            />
-            <SeatClass
-              id="catB"
-              quantity={this.state.quantities.catB}
-              onMinus={() => this.minus('catB')}
-              onPlus={() => this.plus('catB')}
-            />
-          </View>
+          </TouchableOpacity>
         </View>
       </FullPageBGContainer>
     );
