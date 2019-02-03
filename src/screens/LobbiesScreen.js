@@ -36,7 +36,6 @@ export default class AuthScreen extends React.Component {
     return (
       <FullPageBGContainer>
         <ScrollView
-          style={{ flex: 1, paddingHorizontal: 10 }}
           refreshControl={
             // eslint-disable-next-line react/jsx-wrap-multilines
             <RefreshControl

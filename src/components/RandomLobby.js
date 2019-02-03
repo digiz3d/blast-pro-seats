@@ -27,7 +27,7 @@ export default class RandomLobby extends React.Component {
         <View
           style={{
             flexDirection: 'row',
-            marginBottom: this.state.expanded ? 5 : 0,
+            marginBottom: 5,
             marginRight: this.state.expanded ? 0 : 5,
           }}
           key={`fake-lobby-friend-${i}`}
@@ -67,13 +67,21 @@ export default class RandomLobby extends React.Component {
               }
               size={40}
               color={Colors.accent}
-              style={{ textAlignVertical: 'center', textAlign: 'center' }}
+              style={{
+                textAlignVertical: 'center',
+                textAlign: 'center',
+                // backgroundColor: 'red',
+              }}
             />
           </TouchableOpacity>
           <View
             style={{
               flexDirection: this.state.expanded ? 'column' : 'row',
+              flexShrink: 1,
               flexGrow: 1,
+              alignItems: 'flex-start',
+              flexWrap: 'wrap',
+              // backgroundColor: 'red',
             }}
           >
             {this.renderFakeFriends()}
@@ -83,10 +91,14 @@ export default class RandomLobby extends React.Component {
             onPress={() => this.toggleExpand()}
           >
             <Icon.Ionicons
-              name="md-arrow-round-forward"
+              name="md-log-in"
               size={30}
               color={Colors.accent}
-              style={{ textAlignVertical: 'center', textAlign: 'center' }}
+              style={{
+                textAlignVertical: 'center',
+                textAlign: 'center',
+                // backgroundColor: 'red',
+              }}
             />
           </TouchableOpacity>
         </View>
