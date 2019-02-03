@@ -8,7 +8,7 @@ export default class Text extends React.Component {
     return (
       <BasicText
         {...this.props}
-        style={[{ color: Colors.textColor }, this.props.style]}
+        style={[{ color: Colors.textLight }, this.props.style]}
       />
     );
   }

@@ -123,7 +123,7 @@ export default class AuthScreen extends React.Component {
               style={{
                 height: 80,
                 width: 80,
-                borderColor: Colors.textColor,
+                borderColor: Colors.textLight,
                 borderWidth: 2,
               }}
               resizeMode="contain"
@@ -167,7 +167,7 @@ export default class AuthScreen extends React.Component {
                 flexGrow: 1,
               }}
             >
-              Chemoldu
+              chemoldu
             </Text>
             <ActionButton name="ios-hourglass" />
             <ActionButton name="ios-mail" />
@@ -331,7 +331,7 @@ export default class AuthScreen extends React.Component {
               }
               size={40}
               color={
-                this.state.step === 2 ? Colors.background : Colors.textColor
+                this.state.step === 2 ? Colors.background : Colors.textLight
               }
               style={{ textAlignVertical: 'center' }}
             />

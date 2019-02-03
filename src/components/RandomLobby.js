@@ -49,7 +49,7 @@ export default class RandomLobby extends React.Component {
           <Icon.Ionicons
             name="md-people"
             size={24}
-            color={Colors.textColor}
+            color={Colors.textLight}
             style={{ textAlignVertical: 'center' }}
           />
           <Text style={{ flexGrow: 1, textAlign: 'center', fontSize: 20 }}>
