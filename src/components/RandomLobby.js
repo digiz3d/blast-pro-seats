@@ -6,8 +6,6 @@ import Text from './Text';
 import Colors from '../constants/Colors';
 import RandomFriend from './RandomFriend';
 
-// eslint-disable-next-line max-len
-
 export default class RandomLobby extends React.Component {
   constructor(props) {
     super(props);
@@ -86,7 +84,7 @@ export default class RandomLobby extends React.Component {
           >
             <Icon.Ionicons
               name="md-arrow-round-forward"
-              size={40}
+              size={30}
               color={Colors.accent}
               style={{ textAlignVertical: 'center', textAlign: 'center' }}
             />

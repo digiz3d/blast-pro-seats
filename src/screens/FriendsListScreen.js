@@ -11,26 +11,23 @@ export default class AuthScreen extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { switchValue: false };
-    this.fakeFriends = [];
+    this.state = { friends: 0, switchValue: false };
   }
 
   toggleSwitch() {
     const oldValue = this.state.switchValue;
     this.setState({ switchValue: !oldValue });
     if (this.state.switchValue) {
-      this.fakeFriends = [];
+      this.setState({ friends: 0 });
     } else {
-      this.makeFakeFriends();
+      this.setState({ friends: Math.floor(Math.random() * 15) + 2 });
     }
   }
 
-  makeFakeFriends() {
-    const friendsElements = [];
-    const quantity = Math.floor(Math.random() * 10) + 15;
-
-    for (let i = 0; i < quantity; i += 1) {
-      friendsElements.push(
+  renderFakeFriends() {
+    const ret = [];
+    for (let i = 0; i < this.state.friends; i += 1) {
+      ret.push(
         <View
           style={{
             flexDirection: 'row',
@@ -42,7 +39,7 @@ export default class AuthScreen extends React.Component {
         </View>
       );
     }
-    this.fakeFriends = friendsElements;
+    return ret;
   }
 
   render() {
@@ -98,9 +95,7 @@ export default class AuthScreen extends React.Component {
         <View style={{ padding: 10 }}>
           <View style={{ flexDirection: 'row' }}>
             <Text style={{ fontSize: 20 }}>
-              {this.fakeFriends.length > 0
-                ? `${this.fakeFriends.length} `
-                : '?    '}
+              {this.state.friends > 0 ? `${this.state.friends} ` : '?    '}
             </Text>
             <Icon.Ionicons
               name="md-people"
@@ -117,7 +112,7 @@ export default class AuthScreen extends React.Component {
         {/* Friends list */}
 
         <ScrollView style={{ flex: 1, paddingHorizontal: 10 }}>
-          {this.fakeFriends}
+          {this.renderFakeFriends()}
         </ScrollView>
       </FullPageBGContainer>
     );

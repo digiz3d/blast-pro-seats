@@ -38,6 +38,7 @@ export default class AuthScreen extends React.Component {
         <ScrollView
           style={{ flex: 1, paddingHorizontal: 10 }}
           refreshControl={
+            // eslint-disable-next-line react/jsx-wrap-multilines
             <RefreshControl
               refreshing={this.state.refreshing}
               onRefresh={() => this.onRefresh()}
