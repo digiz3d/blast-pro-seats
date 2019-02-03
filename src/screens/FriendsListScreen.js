@@ -69,7 +69,6 @@ export default class AuthScreen extends React.Component {
             color={Colors.textColor}
             style={{ textAlignVertical: 'center' }}
           />
-
           <Text
             style={{
               flexGrow: 1,
@@ -94,7 +93,7 @@ export default class AuthScreen extends React.Component {
           />
         </View>
 
-        {/* Friends list */}
+        {/* Number of interested friends */}
 
         <View style={{ padding: 10 }}>
           <View style={{ flexDirection: 'row' }}>
@@ -114,6 +113,9 @@ export default class AuthScreen extends React.Component {
             </Text>
           </View>
         </View>
+
+        {/* Friends list */}
+
         <ScrollView style={{ flex: 1, paddingHorizontal: 10 }}>
           {this.fakeFriends}
         </ScrollView>
