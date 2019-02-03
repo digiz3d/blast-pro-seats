@@ -8,23 +8,25 @@ import Avatar from '../../assets/images/avatars/1f64b3e479af930411087425c5fc0de6
 export default class RandomFriend extends React.Component {
   render() {
     return (
-      <View style={{ flexDirection: 'row', borderBottomWidth: 1 }}>
+      <View style={{ flexDirection: 'row' }}>
         <Image
           source={Avatar}
           style={{ height: 40, width: 40 }}
           resizeMode="contain"
         />
-        <Text
-          style={{
-            lineHeight: 40,
-            paddingHorizontal: 10,
-            fontSize: 16,
-            // backgroundColor: 'red',
-            flexGrow: 1,
-          }}
-        >
-          Chemoldu
-        </Text>
+        {!this.props.small && (
+          <Text
+            style={{
+              lineHeight: 40,
+              paddingHorizontal: 10,
+              fontSize: 16,
+              // backgroundColor: 'red',
+              flexGrow: 1,
+            }}
+          >
+            Chemoldu
+          </Text>
+        )}
       </View>
     );
   }

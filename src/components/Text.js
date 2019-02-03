@@ -1,12 +1,12 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text as BasicText } from 'react-native';
 
 import Colors from '../constants/Colors';
 
-export default class Title extends React.Component {
+export default class Text extends React.Component {
   render() {
     return (
-      <Text
+      <BasicText
         {...this.props}
         style={[{ color: Colors.textColor }, this.props.style]}
       />

@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
   },
   blueSemiTransparent: {
     flex: 1,
-    backgroundColor: 'rgba(16,26,76, 0.8);',
-    // justifyContent: 'center',
+    backgroundColor: 'rgba(16,26,76, 0.85);',
+    justifyContent: 'center',
   },
 });
 

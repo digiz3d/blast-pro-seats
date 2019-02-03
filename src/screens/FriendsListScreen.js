@@ -12,11 +12,37 @@ export default class AuthScreen extends React.Component {
     super(props);
 
     this.state = { switchValue: false };
+    this.fakeFriends = [];
   }
 
   toggleSwitch() {
     const oldValue = this.state.switchValue;
     this.setState({ switchValue: !oldValue });
+    if (this.state.switchValue) {
+      this.fakeFriends = [];
+    } else {
+      this.makeFakeFriends();
+    }
+  }
+
+  makeFakeFriends() {
+    const friendsElements = [];
+    const quantity = Math.floor(Math.random() * 10) + 15;
+
+    for (let i = 0; i < quantity; i += 1) {
+      friendsElements.push(
+        <View
+          style={{
+            flexDirection: 'row',
+            marginBottom: 5,
+          }}
+          key={`fake-friend-${i}`}
+        >
+          <RandomFriend />
+        </View>
+      );
+    }
+    this.fakeFriends = friendsElements;
   }
 
   render() {
@@ -72,7 +98,11 @@ export default class AuthScreen extends React.Component {
 
         <View style={{ padding: 10 }}>
           <View style={{ flexDirection: 'row' }}>
-            <Text style={{ fontSize: 20 }}>4 </Text>
+            <Text style={{ fontSize: 20 }}>
+              {this.fakeFriends.length > 0
+                ? `${this.fakeFriends.length} `
+                : '?    '}
+            </Text>
             <Icon.Ionicons
               name="md-people"
               size={24}
@@ -85,126 +115,7 @@ export default class AuthScreen extends React.Component {
           </View>
         </View>
         <ScrollView style={{ flex: 1, paddingHorizontal: 10 }}>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
-          <View>
-            <RandomFriend />
-          </View>
+          {this.fakeFriends}
         </ScrollView>
       </FullPageBGContainer>
     );
