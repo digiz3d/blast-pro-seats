@@ -83,7 +83,7 @@ export default class Countdown extends React.Component {
           First quiz in {this.state.time.h}:{this.state.time.m}:
           {this.state.time.s}
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.props.onClick}>
           <Text style={[styles.text, styles.secondaryText]}>Register now</Text>
         </TouchableOpacity>
       </View>

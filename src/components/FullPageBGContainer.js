@@ -1,5 +1,10 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, ImageBackground, View } from 'react-native';
+import {
+  StyleSheet,
+  KeyboardAvoidingView,
+  ImageBackground,
+  View,
+} from 'react-native';
 import Color from '../constants/Colors';
 
 import BackgroundImg from '../../assets/images/background-750x422.jpg';
@@ -19,11 +24,11 @@ const styles = StyleSheet.create({
 export default class FullPageBGContainer extends React.Component {
   render() {
     return (
-      <SafeAreaView style={styles.container}>
+      <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <ImageBackground source={BackgroundImg} style={{ flex: 1 }}>
           <View style={styles.blueSemiTransparent}>{this.props.children}</View>
         </ImageBackground>
-      </SafeAreaView>
+      </KeyboardAvoidingView>
     );
   }
 }

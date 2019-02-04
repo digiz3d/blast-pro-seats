@@ -5,6 +5,7 @@ import {
   createBottomTabNavigator,
   createSwitchNavigator,
   createMaterialTopTabNavigator,
+  createStackNavigator,
 } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
@@ -12,7 +13,7 @@ import TopBarLabel from '../components/TopBarLabel';
 
 import AuthLoadingScreen from '../screens/AuthLoadingScreen';
 import AuthScreen from '../screens/AuthScreen';
-import HomeScreen from '../screens/HomeScreen';
+
 import CalendarScreen from '../screens/CalendarScreen';
 import StoreScreen from '../screens/StoreScreen';
 import InformationScreen from '../screens/InformationScreen';
@@ -20,7 +21,27 @@ import InformationScreen from '../screens/InformationScreen';
 import FriendsListScreen from '../screens/FriendsListScreen';
 import LobbiesScreen from '../screens/LobbiesScreen';
 import MyLobbyScreen from '../screens/MyLobbyScreen';
+
+import HomeScreen from '../screens/HomeScreen';
+import RegisterScreen from '../screens/RegisterScreen';
+import QuizScreen from '../screens/QuizScreen';
+
 import Colors from '../constants/Colors';
+
+const HomeStackNavigator = createStackNavigator(
+  {
+    Home: {
+      screen: HomeScreen,
+    },
+    Register: {
+      screen: RegisterScreen,
+    },
+    Quiz: {
+      screen: QuizScreen,
+    },
+  },
+  { headerMode: 'none' }
+);
 
 const FriendsTopTabsNavigator = createMaterialTopTabNavigator(
   {
@@ -63,8 +84,8 @@ const FriendsTopTabsNavigator = createMaterialTopTabNavigator(
 
 const MainTabNavigator = createBottomTabNavigator(
   {
-    Home: {
-      screen: HomeScreen,
+    HomeStack: {
+      screen: HomeStackNavigator,
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon focused={focused} name="md-home" />

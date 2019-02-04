@@ -8,7 +8,7 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <FullPageBGContainer>
-        <Countdown />
+        <Countdown onClick={() => this.props.navigation.navigate('Register')} />
         <WhatsLive />
       </FullPageBGContainer>
     );

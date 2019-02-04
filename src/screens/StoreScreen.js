@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     width: 20,
     fontSize: 18,
     lineHeight: 20,
-    color: Colors.disabled,
+    color: Colors.textLight,
     borderRadius: 3,
     textAlignVertical: 'center',
     textAlign: 'center',
@@ -189,7 +189,7 @@ export default class StoreScreen extends React.Component {
             style={{
               fontSize: 28,
               fontWeight: '900',
-              color: '#C4C4C4',
+              color: Colors.textLight,
             }}
           >
             TICKETS
