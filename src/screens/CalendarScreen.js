@@ -7,7 +7,7 @@ import FullPageBGContainer from '../components/FullPageBGContainer';
 
 class Event extends React.Component {
   render() {
-    const { name, hour, right } = this.props;
+    const { name, hour, right, last } = this.props;
 
     return (
       <React.Fragment>
@@ -61,11 +61,11 @@ class Event extends React.Component {
         >
           <View
             style={{
-              backgroundColor: 'blue',
               borderColor: Colors.accent,
-              borderRightWidth: 2,
+              borderRightWidth: last ? 0 : 2,
               width: 0,
               height: 40,
+              marginBottom: last ? 20 : 0,
             }}
           />
         </View>
@@ -109,7 +109,7 @@ export default class AuthScreen extends React.Component {
           <Event name="Round 5 / BO1" hour="16:40" />
           <Event name="Blast Stand-Off" hour="18:00" right />
           <Event name="Grand Final / BO1" hour="19:00" />
-          <Event name="Winner's Ceremony" hour="21:20" right />
+          <Event name="Winner's Ceremony" hour="21:20" right last />
         </ScrollView>
       </FullPageBGContainer>
     );
