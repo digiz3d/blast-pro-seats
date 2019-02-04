@@ -5,9 +5,7 @@ import Text from './Text';
 import Colors from '../constants/Colors';
 
 const styles = StyleSheet.create({
-  purpleView: {
-    backgroundColor: Colors.secondAccent,
-  },
+  purpleView: { backgroundColor: Colors.secondAccent },
   text: {
     textAlign: 'center',
     lineHeight: 40,
@@ -57,9 +55,9 @@ export default class Countdown extends React.Component {
     const seconds = Math.ceil(divisorForSeconds);
 
     const obj = {
-      h: ('0' + hours).slice(-2),
-      m: ('0' + minutes).slice(-2),
-      s: ('0' + seconds).slice(-2),
+      h: `0${hours}`.slice(-2),
+      m: `0${minutes}`.slice(-2),
+      s: `0${seconds}`.slice(-2),
     };
     return obj;
   }
@@ -68,7 +66,7 @@ export default class Countdown extends React.Component {
     const seconds = this.state.seconds - 1;
     this.setState({
       time: this.secondsToTime(seconds),
-      seconds: seconds,
+      seconds,
     });
 
     if (seconds === 0 && this.timer !== 0) {
@@ -80,8 +78,9 @@ export default class Countdown extends React.Component {
     return (
       <View style={styles.purpleView}>
         <Text style={[styles.text, styles.mainText]}>
-          First quiz in {this.state.time.h}:{this.state.time.m}:
-          {this.state.time.s}
+          {`First quiz in ${this.state.time.h}:${this.state.time.m}:${
+            this.state.time.s
+          }`}
         </Text>
         <TouchableOpacity onPress={this.props.onClick}>
           <Text style={[styles.text, styles.secondaryText]}>Register now</Text>
