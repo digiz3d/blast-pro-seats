@@ -52,7 +52,7 @@ export default class QuizScreen extends React.Component {
         >
           <View style={{ width: '100%' }}>
             <Text style={{ fontSize: 16, fontWeight: '900' }}>
-              Which team won the last Blast Pro Series in Copenhagen '18 ?
+              Which team won the last Blast Pro Series in Copenhagen &#39;18 ?
             </Text>
             <TouchableOpacity onPress={() => this.select(1)}>
               <Text
