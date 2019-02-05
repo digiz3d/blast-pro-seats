@@ -21,7 +21,7 @@ export default class LobbiesScreen extends React.Component {
     setTimeout(() => {
       const lobbies = Math.floor(Math.random() * 7) + 10;
       this.setState({ lobbies, refreshing: false });
-    }, 1000);
+    }, 1500);
   }
 
   renderLobbies() {

@@ -21,13 +21,15 @@ export default class FriendsListScreen extends React.Component {
         friends: Math.floor(Math.random() * 10) + 40,
         refreshing: false,
       });
-    }, 1000);
+    }, 1500);
   }
 
   toggleSwitch() {
     const oldValue = this.state.switchValue;
     this.setState({ switchValue: !oldValue });
-    this.onRefresh();
+    if (!oldValue) {
+      this.onRefresh();
+    }
   }
 
   renderFakeFriends() {
@@ -132,14 +134,13 @@ export default class FriendsListScreen extends React.Component {
           refreshControl={
             // eslint-disable-next-line react/jsx-wrap-multilines
             <RefreshControl
-              refreshing={this.state.refreshing}
+              refreshing={this.state.switchValue && this.state.refreshing}
               onRefresh={() => this.onRefresh()}
               tintColor={Colors.accent}
               colors={[Colors.accent, Colors.secondAccent]}
               progressBackgroundColor={Colors.background}
               title="Refreshing list..."
               titleColor={Colors.accent}
-              enabled={this.state.switchValue}
             />
           }
           style={{ flex: 1, paddingHorizontal: 10 }}
