@@ -5,7 +5,7 @@ import Colors from '../constants/Colors';
 import FullPageBGContainer from '../components/FullPageBGContainer';
 import RandomLobby from '../components/RandomLobby';
 
-export default class AuthScreen extends React.Component {
+export default class LobbiesScreen extends React.Component {
   constructor(props) {
     super(props);
 
@@ -19,7 +19,7 @@ export default class AuthScreen extends React.Component {
   onRefresh() {
     this.setState({ lobbies: 0, refreshing: true });
     setTimeout(() => {
-      const lobbies = Math.floor(Math.random() * 7) + 5;
+      const lobbies = Math.floor(Math.random() * 7) + 10;
       this.setState({ lobbies, refreshing: false });
     }, 1000);
   }

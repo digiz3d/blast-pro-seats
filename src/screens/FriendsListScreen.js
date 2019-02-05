@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Switch, ScrollView } from 'react-native';
+import { View, Switch, ScrollView, RefreshControl } from 'react-native';
 import { Icon } from 'expo';
 import Text from '../components/Text';
 
@@ -7,21 +7,27 @@ import FullPageBGContainer from '../components/FullPageBGContainer';
 import Colors from '../constants/Colors';
 import RandomFriend from '../components/RandomFriend';
 
-export default class AuthScreen extends React.Component {
+export default class FriendsListScreen extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { friends: 0, switchValue: false };
+    this.state = { friends: 0, switchValue: false, refreshing: false };
+  }
+
+  onRefresh() {
+    this.setState({ friends: 0, refreshing: true });
+    setTimeout(() => {
+      this.setState({
+        friends: Math.floor(Math.random() * 10) + 40,
+        refreshing: false,
+      });
+    }, 1000);
   }
 
   toggleSwitch() {
     const oldValue = this.state.switchValue;
     this.setState({ switchValue: !oldValue });
-    if (this.state.switchValue) {
-      this.setState({ friends: 0 });
-    } else {
-      this.setState({ friends: Math.floor(Math.random() * 15) + 2 });
-    }
+    this.onRefresh();
   }
 
   renderFakeFriends() {
@@ -93,26 +99,52 @@ export default class AuthScreen extends React.Component {
         {/* Number of interested friends */}
 
         <View style={{ padding: 10 }}>
-          <View style={{ flexDirection: 'row' }}>
-            <Text style={{ fontSize: 20 }}>
-              {this.state.friends > 0 ? `${this.state.friends} ` : '?    '}
-            </Text>
-            <Icon.Ionicons
-              name="md-people"
-              size={24}
-              color={Colors.textLight}
-              style={{ textAlignVertical: 'center' }}
-            />
-            <Text style={{ flexGrow: 1, textAlign: 'center', fontSize: 20 }}>
-              Interested friends
-            </Text>
-          </View>
+          {this.state.switchValue ? (
+            <View style={{ flexDirection: 'row' }}>
+              <Text style={{ fontSize: 20 }}>
+                {this.state.friends > 0 ? `${this.state.friends} ` : '?    '}
+              </Text>
+              <Icon.Ionicons
+                name="md-people"
+                size={24}
+                color={Colors.textLight}
+                style={{ textAlignVertical: 'center' }}
+              />
+              <Text style={{ flexGrow: 1, textAlign: 'center', fontSize: 20 }}>
+                Interested friends
+              </Text>
+            </View>
+          ) : (
+            <View>
+              <Text style={{ textAlign: 'center', fontSize: 20 }}>
+                Are you interested in this event ?
+              </Text>
+              <Text>
+                Then toggle the switch to look for friends to go with.
+              </Text>
+            </View>
+          )}
         </View>
 
         {/* Friends list */}
 
-        <ScrollView style={{ flex: 1, paddingHorizontal: 10 }}>
-          {this.renderFakeFriends()}
+        <ScrollView
+          refreshControl={
+            // eslint-disable-next-line react/jsx-wrap-multilines
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={() => this.onRefresh()}
+              tintColor={Colors.accent}
+              colors={[Colors.accent, Colors.secondAccent]}
+              progressBackgroundColor={Colors.background}
+              title="Refreshing list..."
+              titleColor={Colors.accent}
+              enabled={this.state.switchValue}
+            />
+          }
+          style={{ flex: 1, paddingHorizontal: 10 }}
+        >
+          {this.state.switchValue ? this.renderFakeFriends() : null}
         </ScrollView>
       </FullPageBGContainer>
     );

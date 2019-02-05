@@ -100,7 +100,7 @@ class Event extends React.Component {
   }
 }
 
-export default class AuthScreen extends React.Component {
+export default class CalendarScreen extends React.Component {
   render() {
     return (
       <FullPageBGContainer>

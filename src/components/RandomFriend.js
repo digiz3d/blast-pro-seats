@@ -66,6 +66,94 @@ const fakeFriends = [
     name: 'Irtyx',
     image: '0c84557a78959ed8c2f895e6fd1ac3a072c47091_full.jpg',
   },
+  {
+    name: '✪Amadeo✪',
+    image: '9aa9ac3cd90228cfa5252679f0267b802439cdae_full.jpg',
+  },
+  {
+    name: 'Leton 2111',
+    image: 'b739a6b0196e66d4a347eba86ad1d309c234e65f_full.jpg',
+  },
+  {
+    name: 'sopheyy ò,ó',
+    image: 'bcadbc9dfc4532663a868c2ff62c9af85fed3b7b_full.jpg',
+  },
+  {
+    name: 'Persykia',
+    image: 'ff5fcf7135502a7cd565c9b7577b716140d8231e_full.jpg',
+  },
+  {
+    name: 'Sébastien [suprrrrr]',
+    image: '70fa20d1c764eb0532d9269fd67b5880031c0786_full.jpg',
+  },
+  {
+    name: 'Scar à B',
+    image: '9f7360193e8c813042c1e79ed95572d2d37118b2_full.jpg',
+  },
+  {
+    name: 'sync',
+    image: '0795d97699f96b6790a18ab09531418da9eb11cf_full.jpg',
+  },
+  {
+    name: 'Vayes',
+    image: 'd8fee5daf9b00d69a8c17460e29f6ae99e3c7d0f_full.jpg',
+  },
+  {
+    name: 'R3LaX_04',
+    image: '673513eb5d9fed5b26647de31a5f559ede989c4c_full.jpg',
+  },
+  {
+    name: 'etche',
+    image: 'a1df85396c88178ccb468b6592b1a9da42175dc1_full.jpg',
+  },
+  {
+    name: 'AlcaTaz ♥',
+    image: '388fe9ca2dadb55560b548201728529c57528760_full.jpg',
+  },
+  {
+    name: 'AiMon',
+    image: '0d9e18021002ceb0fd0f26b219b71ec0f4c7ddb1_full.jpg',
+  },
+  {
+    name: 'CoyoteChanteur',
+    image: '6a416386b81130afc20ac828517b6ad6a8af2ccb_full.jpg',
+  },
+  {
+    name: 'Domarkius',
+    image: '7cb7cfd042a1b6aed461898ab4ffbf13c51c185d_full.jpg',
+  },
+  {
+    name: 'x2Neale',
+    image: '4d211a90702254e9abb072d820cc8ee0f33b9571_full.jpg',
+  },
+  {
+    name: '♚ croft-jeje ♔',
+    image: '0ce39039c82b3c6eec157973f192b8499c8d612f_full.jpg',
+  },
+  {
+    name: 'Z3rCool',
+    image: '0c6b8b14fa734bbaf427f40fc02857e493052d13_full.jpg',
+  },
+  {
+    name: "Storm'rage",
+    image: '15bbe4e9e9523e3108556aac3759eb033425b137_full.jpg',
+  },
+  {
+    name: '-BoK- LePoutch',
+    image: '5d594f2338f5aa905a448de5cbfed1457ebfedbb_full.jpg',
+  },
+  {
+    name: 'GRINGO',
+    image: '13f3f1dce8ef16078b705f0a36429ebf674a3cd0_full.jpg',
+  },
+  {
+    name: 'StEfAnO-ElEcTrO',
+    image: '85885ab678f9c5942b1e0672506d29850287db5e_full.jpg',
+  },
+  {
+    name: 'xXMaDpHiLXx',
+    image: 'f739c793252fca664299e4f77d52de3033d841c8_full.jpg',
+  },
 ];
 export default class RandomFriend extends React.Component {
   constructor(props) {
