@@ -1,13 +1,18 @@
 import React from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import {
+  View,
+  ActivityIndicator,
+  StyleSheet,
+  ImageBackground,
+} from 'react-native';
 import Colors from '../constants/Colors';
+
+import BackgroundImg from '../../assets/images/1540994837843-blast-estadio.png';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 
@@ -22,7 +27,7 @@ class AuthLoadingScreen extends React.Component {
     const { status } = this.props;
     // eslint-disable-next-line no-unused-vars
     return new Promise((resolve, reject) => {
-      setTimeout(reject, 1000);
+      setTimeout(reject, 1500);
     })
       .then(() => true)
       .catch(() => false);
@@ -39,7 +44,16 @@ class AuthLoadingScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ActivityIndicator color={Colors.accent} size={100} />
+        <ImageBackground
+          source={BackgroundImg}
+          style={{
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <ActivityIndicator color={Colors.accent} size={100} />
+        </ImageBackground>
       </View>
     );
   }
