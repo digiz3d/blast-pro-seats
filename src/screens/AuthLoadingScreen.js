@@ -52,7 +52,7 @@ class AuthLoadingScreen extends React.Component {
             justifyContent: 'center',
           }}
         >
-          <ActivityIndicator color={Colors.accent} size={100} />
+          <ActivityIndicator color={Colors.accent} size="large" />
         </ImageBackground>
       </View>
     );

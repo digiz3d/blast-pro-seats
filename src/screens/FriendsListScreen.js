@@ -59,6 +59,7 @@ export default class FriendsListScreen extends React.Component {
             height: 60,
             // backgroundColor: 'red',
             paddingHorizontal: 10,
+            alignItems: 'center',
           }}
         >
           {/*
@@ -92,7 +93,10 @@ export default class FriendsListScreen extends React.Component {
             }}
             onValueChange={() => this.toggleSwitch()}
             value={this.state.switchValue}
-            trackColor={Colors.background}
+            trackColor={{
+              false: Colors.secondAccent,
+              true: Colors.secondAccent,
+            }}
             thumbColor={Colors.accent}
             ios_backgroundColor={Colors.background}
           />
