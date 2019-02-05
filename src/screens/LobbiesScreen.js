@@ -19,7 +19,7 @@ export default class LobbiesScreen extends React.Component {
   onRefresh() {
     this.setState({ lobbies: 0, refreshing: true });
     setTimeout(() => {
-      const lobbies = Math.floor(Math.random() * 7) + 10;
+      const lobbies = Math.floor(Math.random() * 7) + 15;
       this.setState({ lobbies, refreshing: false });
     }, 1500);
   }

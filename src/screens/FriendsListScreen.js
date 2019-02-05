@@ -143,7 +143,8 @@ export default class FriendsListScreen extends React.Component {
               titleColor={Colors.accent}
             />
           }
-          style={{ flex: 1, paddingHorizontal: 10 }}
+          contentContainerStyle={{ paddingHorizontal: 10 }}
+          style={{ flex: 1 }}
         >
           {this.state.switchValue ? this.renderFakeFriends() : null}
         </ScrollView>

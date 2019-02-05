@@ -125,8 +125,8 @@ export default class CalendarScreen extends React.Component {
           style={{
             flex: 1,
             // backgroundColor: 'orange',
-            paddingHorizontal: 20,
           }}
+          contentContainerStyle={{ paddingHorizontal: 20 }}
         >
           <Event
             name="Doors open to arena"
