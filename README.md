@@ -1,5 +1,5 @@
 # blast-pro-seats
-React native mobile.
+React native mobile app prototype
 
 
 ## Install the dependencies using yarn
