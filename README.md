@@ -2,13 +2,13 @@
 React native mobile.
 
 
-# Install using yarn
+## Install the dependencies using yarn
 ```yarn```
 
-# Start using yarn
+## Start development server using yarn
 ```yarn start```
 
-# Build using expo-cli
+## Build using expo-cli
 ```expo build:android```
 or
 ```expo build:ios```
